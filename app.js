@@ -493,6 +493,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const actionButtons = document.querySelectorAll(".btn-action");
   actionButtons.forEach(btn => {
     btn.addEventListener("click", (e) => {
+      const href = btn.getAttribute("href");
+      if (href && href !== "#" && !href.startsWith("javascript:")) {
+        // Direct static page navigation
+        return;
+      }
       e.preventDefault();
       const airport = btn.getAttribute("data-airport");
       const type = btn.getAttribute("data-type");
@@ -507,6 +512,12 @@ document.addEventListener("DOMContentLoaded", () => {
       e.preventDefault();
       returnToMenu();
     });
+  }
+
+  // Adjust back link if deployed on GitHub Pages
+  const btnBackToMain = document.getElementById("btnBackToMain");
+  if (btnBackToMain && window.location.hostname.includes("github.io")) {
+    btnBackToMain.setAttribute("href", "../travis-cruise/");
   }
 
   // 4. Inactivity listeners (resets 90s timer on user touch / click / scroll)

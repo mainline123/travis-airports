@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>SANGSTER INTERNATIONAL AIRPORT (MBJ) — Live Arrivals | Moon Palace Jamaica</title>
+  <!-- Google Fonts: Montserrat & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Older WebView & low-end Android hardware-accelerated smooth scrolling rules */
+    #boardFlightList,
+    .board-table-body,
+    #list_of_companies {
+      width: 100%;
+      flex: 1 1 auto;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+      overflow-x: hidden;
+      -webkit-overflow-scrolling: touch;
+      scroll-behavior: auto;
+      touch-action: pan-y;
+      background: #00171e;
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      pointer-events: auto;
+    }
+
+    .flight-row,
+    #list_of_companies li {
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      content-visibility: auto;
+      contain-intrinsic-size: 0 54px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="kiosk-wrapper">
+
+  <!-- FLIGHT BOARD VIEW -->
+  <section id="boardView" class="kiosk-canvas view-active" style="position:relative; opacity:1; visibility:visible; transform:none;" aria-live="polite">
+
+    <!-- Board Header -->
+    <header class="board-header">
+      <div class="board-brand-col">
+        <div class="board-iata" id="boardAirportCode">MBJ</div>
+        <div class="board-country">JAMAICA</div>
+      </div>
+
+      <div class="board-airport-meta">
+        <a href="index.html" class="btn-return-menu" id="btnReturnToMenu" aria-label="Return to Airport Selection Menu">
+          &larr; RETURN TO MENU
+        </a>
+        <div class="board-fullname" id="boardAirportName">SANGSTER INTERNATIONAL AIRPORT</div>
+        <div class="board-location" id="boardAirportLocation">MONTEGO BAY • JAMAICA</div>
+        <div class="board-live-pill">
+          <span class="live-dot"></span> LIVE DATA
+        </div>
+      </div>
+    </header>
+
+    <!-- Clock & Date Bar (Jamaica Time) -->
+    <div class="board-clock-bar">
+      <div class="clock-display">
+        <span class="clock-time" id="boardLiveClock">--:--:--</span>
+        <span class="clock-tz">EST (LOCAL)</span>
+      </div>
+      <div class="date-display" id="boardLiveDate">Loading Date...</div>
+    </div>
+
+    <!-- Category Banner -->
+    <div class="board-hero-banner" id="boardHeroBanner">
+      <div class="hero-category-title" id="boardCategoryTitle">
+        ARRIVALS <span class="hero-cat-icon">&#128748;</span>
+      </div>
+      <div class="hero-source-badge" id="boardSourceBadge">
+        OFFICIAL MBJ DATA
+      </div>
+    </div>
+
+    <!-- Column Headers -->
+    <div class="board-columns-header" id="boardTableColumns">
+      <div class="col-airline">AIRLINE / FLIGHT</div>
+      <div class="col-place" id="colHeaderPlace">FROM</div>
+      <div class="col-counter" id="colHeaderDesk">BAG</div>
+      <div class="col-gate" id="colHeaderGate">GATE</div>
+      <div class="col-time">TIME</div>
+      <div class="col-status">STATUS</div>
+    </div>
+
+    <!-- Flights Scroll/List Container (Hardware-accelerated touch scroll for Android WebViews) -->
+    <div class="board-table-body" id="boardFlightList">
+      <div class="flight-row" data-index="0">
+        <div class="cell-airline">
+          
+    <div class="airline-logo-box">
+      <img
+        class="airline-logo-img"
+        src="assets/logos/JBU.png"
+        alt=""
+        onerror="if(this.dataset.triedRemote !== '1' && 'https://raw.githubusercontent.com/imgmongelli/airlines-logos-dataset/master/images/JBU.png'){ this.dataset.triedRemote='1'; this.src='https://raw.githubusercontent.com/imgmongelli/airlines-logos-dataset/master/images/JBU.png'; } else { this.style.display='none'; this.nextElementSibling.style.display='flex'; }"
+      />
+      <div class="airline-fallback-badge">B6</div>
+    </div>
+    <div class="airline-text">Jet Blue B61127</div>
+  
+        </div>
+        <div class="cell-place">Ft. Lauderdale</div>
+        <div class="cell-counter cell-center">2</div>
+        <div class="cell-gate cell-center">—</div>
+        <div class="cell-time cell-center">11:04 AM</div>
+        <div class="cell-status ">—</div>
+      </div>
+      <div class="flight-row" data-index="1">
+        <div class="cell-airline">
+          
+    <div class="airline-logo-box">
+      <img
+        class="airline-logo-img"
+        src="assets/logos/JBU.png"
+        alt=""
+        onerror="if(this.dataset.triedRemote !== '1' && 'https://raw.githubusercontent.com/imgmongelli/airlines-logos-dataset/master/images/JBU.png'){ this.dataset.triedRemote='1'; this.src='https://raw.githubusercontent.com/imgmongelli/airlines-logos-dataset/master/images/JBU.png'; } else { this.style.display='none'; this.nextElementSibling.style.display='flex'; }"
+      />
+      <div class="airline-fallback-badge">B6</div>
+    </div>
+    <div class="airline-text">Jet Blue B6779</div>
+  
+        </div>
+        <div class="cell-place">New York - JFK</div>
+        <div class="cell-counter cell-center">2</div>
+        <div class="cell-gate cell-center">—</div>
+        <div class="cell-time cell-center">11:15 AM</div>
+        <div class="cell-status ">—</div>
+      </div>
+      <div class="flight-row" data-index="2">
+        <div class="cell-airline">
+          
+    <div class="airline-logo-box">
+      <img
+        class="airline-logo-img"
+        src="assets/logos/CMP.png"
+        alt=""
+        onerror="if(this.dataset.triedRemote !== '1' && 'https://raw.githubusercontent.com/imgmongelli/airlines-logos-dataset/master/images/CMP.png'){ this.dataset.triedRemote='1'; this.src='https://raw.githubusercontent.com/imgmongelli/airlines-logos-dataset/master/images/CMP.png'; } else { this.style.display='none'; this.nextElementSibling.style.display='flex'; }"
+      />
+      <div class="airline-fallback-badge">CM</div>
+    </div>
+    <div class="airline-text">Copa Airlines CM146</div>
+  
+        </div>
+        <div class="cell-place">Tocumen</div>
+        <div class="cell-counter cell-center">1</div>
+        <div class="cell-gate cell-center">—</div>
+        <div class="cell-time cell-center">11:17 AM</div>
+        <div class="cell-status ">—</div>
+      </div>
+      <div class="flight-row" data-index="3">
+        <div class="cell-airline">
+          
+    <div class="airline-logo-box">
+      <img
+        class="airline-logo-img"
+        src="assets/logos/ACA.png"
+        alt=""
+        onerror="if(this.dataset.triedRemote !== '1' && 'https://raw.githubusercontent.com/imgmongelli/airlines-logos-dataset/master/images/ACA.png'){ this.dataset.triedRemote='1'; this.src='https://raw.githubusercontent.com/imgmongelli/airlines-logos-dataset/master/images/ACA.png'; } else { this.style.display='none'; this.nextElementSibling.style.display='flex'; }"
+      />
+      <div class="airline-fallback-badge">AC</div>
+    </div>
+    <div class="airline-text">Air Canada AC1804</div>
+  
+        </div>
+        <div class="cell-place">Toronto</div>
+        <div class="cell-counter cell-center">6</div>
+        <div class="cell-gate cell-center">—</div>
+        <div class="cell-time cell-center">11:30 AM</div>
+        <div class="cell-status ">—</div>
+      </div>
+      <div class="flight-row" data-index="4">
+        <div class="cell-airline">
+          
+    <div class="airline-logo-box">
+      <img
+        class="airline-logo-img"
+        src="assets/logos/DAL.png"
+        alt=""
+        onerror="if(this.dataset.triedRemote !== '1' && 'https://raw.githubusercontent.com/imgmongelli/airlines-logos-dataset/master/images/DAL.png'){ this.dataset.triedRemote='1'; this.src='https://raw.githubusercontent.com/imgmongelli/airlines-logos-dataset/master/images/DAL.png'; } else { this.style.display='none'; this.nextElementSibling.style.display='flex'; }"
+      />
+      <div class="airline-fallback-badge">DL</div>
+    </div>
+    <div class="airline-text">Delta Airlines DL1955</div>
+  
+        </div>
+        <div class="cell-place">New York - JFK</div>
+        <div class="cell-counter cell-center">5</div>
+        <div class="cell-gate cell-center">—</div>
+        <div class="cell-time cell-center">11:33 AM</div>
+        <div class="cell-status ">—</div>
+      </div>
+      <div class="flight-row" data-index="5">
+        <div class="cell-airline">
+          
+    <div class="airline-logo-box">
+      <img
+        class="airline-logo-img"
+        src="assets/logos/AAL.png"
+        alt=""
+        onerror="if(this.dataset.triedRemote !== '1' && 'https://raw.githubusercontent.com/imgmongelli/airlines-logos-dataset/master/images/AAL.png'){ this.dataset.triedRemote='1'; this.src='https://raw.githubusercontent.com/imgmongelli/airlines-logos-dataset/master/images/AAL.png'; } else { this.style.display='none'; this.nextElementSibling.style.display='flex'; }"
+      />
+      <div class="airline-fallback-badge">AA</div>
+    </div>
+    <div class="airline-text">American Airlines AA855</div>
+  
+        </div>
+        <div class="cell-place">Charlotte</div>
+        <div class="cell-counter cell-center">3</div>
+        <div class="cell-gate cell-center">—</div>
+        <div class="cell-time cell-center">11:37 AM</div>
+        <div class="cell-status ">—</div>
+      </div>
+      <div class="flight-row" data-index="6">
+        <div class="cell-airline">
+          
+    <div class="airline-logo-box">
+      <img
+        class="airline-logo-img"
+        src="assets/logos/UAL.png"
+        alt=""
+        onerror="if(this.dataset.triedRemote !== '1' && 'https://raw.githubusercontent.com/imgmongelli/airlines-logos-dataset/master/images/UAL.png'){ this.dataset.triedRemote='1'; this.src='https://raw.githubusercontent.com/imgmongelli/airlines-logos-dataset/master/images/UAL.png'; } else { this.style.display='none'; this.nextElementSibling.style.display='flex'; }"
+      />
+      <div class="airline-fallback-badge">UA</div>
+    </div>
+    <div class="airline-text">United Airlines UA1462</div>
+  
+        </div>
+        <div class="cell-place">Newark</div>
+        <div class="cell-counter cell-center">4</div>
+        <div class="cell-gate cell-center">—</div>
+        <div class="cell-time cell-center">11:43 AM</div>
+        <div class="cell-status ">—</div>
+      </div>
+      <div class="flight-row" data-index="7">
+        <div class="cell-airline">
+          
+    <div class="airline-logo-box">
+      <img
+        class="airline-logo-img"
+        src="assets/logos/DAL.png"
+        alt=""
+        onerror="if(this.dataset.triedRemote !== '1' && 'https://raw.githubusercontent.com/imgmongelli/airlines-logos-dataset/master/images/DAL.png'){ this.dataset.triedRemote='1'; this.src='https://raw.githubusercontent.com/imgmongelli/airlines-logos-dataset/master/images/DAL.png'; } else { this.style.display='none'; this.nextElementSibling.style.display='flex'; }"
+      />
+      <div class="airline-fallback-badge">DL</div>
+    </div>
+    <div class="airline-text">Delta Airlines DL1997</div>
+  
+        </div>
+        <div class="cell-place">Atlanta</div>
+        <div class="cell-counter cell-center">5</div>
+        <div class="cell-gate cell-center">—</div>
+        <div class="cell-time cell-center">11:48 AM</div>
+        <div class="cell-status ">—</div>
+      </div>
+      <div class="flight-row" data-index="8">
+        <div class="cell-airline">
+          
+    <div class="airline-logo-box">
+      <img
+        class="airline-logo-img"
+        src="assets/logos/SWA.png"
+        alt=""
+        onerror="if(this.dataset.triedRemote !== '1' && 'https://raw.githubusercontent.com/imgmongelli/airlines-logos-dataset/master/images/SWA.png'){ this.dataset.triedRemote='1'; this.src='https://raw.githubusercontent.com/imgmongelli/airlines-logos-dataset/master/images/SWA.png'; } else { this.style.display='none'; this.nextElementSibling.style.display='flex'; }"
+      />
+      <div class="airline-fallback-badge">WN</div>
+    </div>
+    <div class="airline-text">Southwest Airlines WN272</div>
+  
+        </div>
+        <div class="cell-place">Orlando</div>
+        <div class="cell-counter cell-center">7</div>
+        <div class="cell-gate cell-center">—</div>
+        <div class="cell-time cell-center">11:55 AM</div>
+        <div class="cell-status ">—</div>
+      </div>
+      <div class="flight-row" data-index="9">
+        <div class="cell-airline">
+          
+    <div class="airline-logo-box">
+      <img
+        class="airline-logo-img"
+        src="assets/logos/JBU.png"
+        alt=""
+        onerror="if(this.dataset.triedRemote !== '1' && 'https://raw.githubusercontent.com/imgmongelli/airlines-logos-dataset/master/images/JBU.png'){ this.dataset.triedRemote='1'; this.src='https://raw.githubusercontent.com/imgmongelli/airlines-logos-dataset/master/images/JBU.png'; } else { this.style.display='none'; this.nextElementSibling.style.display='flex'; }"
+      />
+      <div class="airline-fallback-badge">B6</div>
+    </div>
+    <div class="airline-text">Jet Blue B6279</div>
+  
+        </div>
+        <div class="cell-place">New York - JFK</div>
+        <div class="cell-counter cell-center">2</div>
+        <div class="cell-gate cell-center">—</div>
+        <div class="cell-time cell-center">12:39 PM</div>
+        <div class="cell-status ">—</div>
+      </div>
+      <div class="flight-row" data-index="10">
+        <div class="cell-airline">
+          
+    <div class="airline-logo-box">
+      <img
+        class="airline-logo-img"
+        src="assets/logos/WJA.png"
+        alt=""
+        onerror="if(this.dataset.triedRemote !== '1' && 'https://raw.githubusercontent.com/imgmongelli/airlines-logos-dataset/master/images/WJA.png'){ this.dataset.triedRemote='1'; this.src='https://raw.githubusercontent.com/imgmongelli/airlines-logos-dataset/master/images/WJA.png'; } else { this.style.display='none'; this.nextElementSibling.style.display='flex'; }"
+      />
+      <div class="airline-fallback-badge">WS</div>
+    </div>
+    <div class="airline-text">West Jet WS2914</div>
+  
+        </div>
+        <div class="cell-place">Montreal</div>
+        <div class="cell-counter cell-center">1</div>
+        <div class="cell-gate cell-center">—</div>
+        <div class="cell-time cell-center">12:50 PM</div>
+        <div class="cell-status ">—</div>
+      </div>
+      <div class="flight-row" data-index="11">
+        <div class="cell-airline">
+          
+    <div class="airline-logo-box">
+      <img
+        class="airline-logo-img"
+        src="assets/logos/SWA.png"
+        alt=""
+        onerror="if(this.dataset.triedRemote !== '1' && 'https://raw.githubusercontent.com/imgmongelli/airlines-logos-dataset/master/images/SWA.png'){ this.dataset.triedRemote='1'; this.src='https://raw.githubusercontent.com/imgmongelli/airlines-logos-dataset/master/images/SWA.png'; } else { this.style.display='none'; this.nextElementSibling.style.display='flex'; }"
+      />
+      <div class="airline-fallback-badge">WN</div>
+    </div>
+    <div class="airline-text">Southwest Airlines WN906</div>
+  
+        </div>
+        <div class="cell-place">Baltimore</div>
+        <div class="cell-counter cell-center">4</div>
+        <div class="cell-gate cell-center">—</div>
+        <div class="cell-time cell-center">12:55 PM</div>
+        <div class="cell-status ">—</div>
+      </div>
+      <div class="flight-row" data-index="12">
+        <div class="cell-airline">
+          
+    <div class="airline-logo-box">
+      <img
+        class="airline-logo-img"
+        src="assets/logos/DAL.png"
+        alt=""
+        onerror="if(this.dataset.triedRemote !== '1' && 'https://raw.githubusercontent.com/imgmongelli/airlines-logos-dataset/master/images/DAL.png'){ this.dataset.triedRemote='1'; this.src='https://raw.githubusercontent.com/imgmongelli/airlines-logos-dataset/master/images/DAL.png'; } else { this.style.display='none'; this.nextElementSibling.style.display='flex'; }"
+      />
+      <div class="airline-fallback-badge">DL</div>
+    </div>
+    <div class="airline-text">Delta Airlines DL1801</div>
+  
+        </div>
+        <div class="cell-place">Atlanta</div>
+        <div class="cell-counter cell-center">5</div>
+        <div class="cell-gate cell-center">—</div>
+        <div class="cell-time cell-center">1:01 PM</div>
+        <div class="cell-status ">—</div>
+      </div>
+      <div class="flight-row" data-index="13">
+        <div class="cell-airline">
+          
+    <div class="airline-logo-box">
+      <img
+        class="airline-logo-img"
+        src="assets/logos/AAL.png"
+        alt=""
+        onerror="if(this.dataset.triedRemote !== '1' && 'https://raw.githubusercontent.com/imgmongelli/airlines-logos-dataset/master/images/AAL.png'){ this.dataset.triedRemote='1'; this.src='https://raw.githubusercontent.com/imgmongelli/airlines-logos-dataset/master/images/AAL.png'; } else { this.style.display='none'; this.nextElementSibling.style.display='flex'; }"
+      />
+      <div class="airline-fallback-badge">AA</div>
+    </div>
+    <div class="airline-text">American Airlines AA3228</div>
+  
+        </div>
+        <div class="cell-place">O&#039;Hare International</div>
+        <div class="cell-counter cell-center">3</div>
+        <div class="cell-gate cell-center">—</div>
+        <div class="cell-time cell-center">1:12 PM</div>
+        <div class="cell-status ">—</div>
+      </div>
+      <div class="flight-row" data-index="14">
+        <div class="cell-airline">
+          <div class="airline-text">TUI Airways TOM636</div>
+        </div>
+        <div class="cell-place">Birmingham</div>
+        <div class="cell-counter cell-center">6</div>
+        <div class="cell-gate cell-center">—</div>
+        <div class="cell-time cell-center">1:15 PM</div>
+        <div class="cell-status ">—</div>
+      </div>
+      <div class="flight-row" data-index="15">
+        <div class="cell-airline">
+          
+    <div class="airline-logo-box">
+      <img
+        class="airline-logo-img"
+        src="assets/logos/AAL.png"
+        alt=""
+        onerror="if(this.dataset.triedRemote !== '1' && 'https://raw.githubusercontent.com/imgmongelli/airlines-logos-dataset/master/images/AAL.png'){ this.dataset.triedRemote='1'; this.src='https://raw.githubusercontent.com/imgmongelli/airlines-logos-dataset/master/images/AAL.png'; } else { this.style.display='none'; this.nextElementSibling.style.display='flex'; }"
+      />
+      <div class="airline-fallback-badge">AA</div>
+    </div>
+    <div class="airline-text">American Airlines AA875</div>
+  
+        </div>
+        <div class="cell-place">Charlotte</div>
+        <div class="cell-counter cell-center">5</div>
+        <div class="cell-gate cell-center">—</div>
+        <div class="cell-time cell-center">1:28 PM</div>
+        <div class="cell-status ">—</div>
+      </div>
+      <div class="flight-row" data-index="16">
+        <div class="cell-airline">
+          
+    <div class="airline-logo-box">
+      <img
+        class="airline-logo-img"
+        src="assets/logos/AAL.png"
+        alt=""
+        onerror="if(this.dataset.triedRemote !== '1' && 'https://raw.githubusercontent.com/imgmongelli/airlines-logos-dataset/master/images/AAL.png'){ this.dataset.triedRemote='1'; this.src='https://raw.githubusercontent.com/imgmongelli/airlines-logos-dataset/master/images/AAL.png'; } else { this.style.display='none'; this.nextElementSibling.style.display='flex'; }"
+      />
+      <div class="airline-fallback-badge">AA</div>
+    </div>
+    <div class="airline-text">American Airlines AA2124</div>
+  
+        </div>
+        <div class="cell-place">Miami</div>
+        <div class="cell-counter cell-center">7</div>
+        <div class="cell-gate cell-center">—</div>
+        <div class="cell-time cell-center">1:48 PM</div>
+        <div class="cell-status ">—</div>
+      </div>
+      <div class="flight-row" data-index="17">
+        <div class="cell-airline">
+          
+    <div class="airline-logo-box">
+      <img
+        class="airline-logo-img"
+        src="assets/logos/JBU.png"
+        alt=""
+        onerror="if(this.dataset.triedRemote !== '1' && 'https://raw.githubusercontent.com/imgmongelli/airlines-logos-dataset/master/images/JBU.png'){ this.dataset.triedRemote='1'; this.src='https://raw.githubusercontent.com/imgmongelli/airlines-logos-dataset/master/images/JBU.png'; } else { this.style.display='none'; this.nextElementSibling.style.display='flex'; }"
+      />
+      <div class="airline-fallback-badge">B6</div>
+    </div>
+    <div class="airline-text">Jet Blue B6521</div>
+  
+        </div>
+        <div class="cell-place">Orlando</div>
+        <div class="cell-counter cell-center">2</div>
+        <div class="cell-gate cell-center">—</div>
+        <div class="cell-time cell-center">2:21 PM</div>
+        <div class="cell-status ">—</div>
+      </div>
+      <div class="flight-row" data-index="18">
+        <div class="cell-airline">
+          
+    <div class="airline-logo-box">
+      <img
+        class="airline-logo-img"
+        src="assets/logos/AAL.png"
+        alt=""
+        onerror="if(this.dataset.triedRemote !== '1' && 'https://raw.githubusercontent.com/imgmongelli/airlines-logos-dataset/master/images/AAL.png'){ this.dataset.triedRemote='1'; this.src='https://raw.githubusercontent.com/imgmongelli/airlines-logos-dataset/master/images/AAL.png'; } else { this.style.display='none'; this.nextElementSibling.style.display='flex'; }"
+      />
+      <div class="airline-fallback-badge">AA</div>
+    </div>
+    <div class="airline-text">American Airlines AA2039</div>
+  
+        </div>
+        <div class="cell-place">Philadelphia</div>
+        <div class="cell-counter cell-center">5</div>
+        <div class="cell-gate cell-center">—</div>
+        <div class="cell-time cell-center">2:23 PM</div>
+        <div class="cell-status ">—</div>
+      </div>
+      <div class="flight-row" data-index="19">
+        <div class="cell-airline">
+          
+    <div class="airline-logo-box">
+      <img
+        class="airline-logo-img"
+        src="assets/logos/RPB.png"
+        alt=""
+        onerror="if(this.dataset.triedRemote !== '1' && 'https://raw.githubusercontent.com/imgmongelli/airlines-logos-dataset/master/images/RPB.png'){ this.dataset.triedRemote='1'; this.src='https://raw.githubusercontent.com/imgmongelli/airlines-logos-dataset/master/images/RPB.png'; } else { this.style.display='none'; this.nextElementSibling.style.display='flex'; }"
+      />
+      <div class="airline-fallback-badge">P5</div>
+    </div>
+    <div class="airline-text">Wingo P57482</div>
+  
+        </div>
+        <div class="cell-place">Medellin</div>
+        <div class="cell-counter cell-center">1</div>
+        <div class="cell-gate cell-center">—</div>
+        <div class="cell-time cell-center">3:29 PM</div>
+        <div class="cell-status ">—</div>
+      </div>
+      <div class="flight-row" data-index="20">
+        <div class="cell-airline">
+          
+    <div class="airline-logo-box">
+      <img
+        class="airline-logo-img"
+        src="assets/logos/TFL.png"
+        alt=""
+        onerror="if(this.dataset.triedRemote !== '1' && 'https://raw.githubusercontent.com/imgmongelli/airlines-logos-dataset/master/images/TFL.png'){ this.dataset.triedRemote='1'; this.src='https://raw.githubusercontent.com/imgmongelli/airlines-logos-dataset/master/images/TFL.png'; } else { this.style.display='none'; this.nextElementSibling.style.display='flex'; }"
+      />
+      <div class="airline-fallback-badge">OR</div>
+    </div>
+    <div class="airline-text">TUI Fly - NL OR511</div>
+  
+        </div>
+        <div class="cell-place">Amsterdam</div>
+        <div class="cell-counter cell-center">6</div>
+        <div class="cell-gate cell-center">—</div>
+        <div class="cell-time cell-center">3:35 PM</div>
+        <div class="cell-status ">—</div>
+      </div>
+      <div class="flight-row" data-index="21">
+        <div class="cell-airline">
+          
+    <div class="airline-logo-box">
+      <img
+        class="airline-logo-img"
+        src="assets/logos/JBU.png"
+        alt=""
+        onerror="if(this.dataset.triedRemote !== '1' && 'https://raw.githubusercontent.com/imgmongelli/airlines-logos-dataset/master/images/JBU.png'){ this.dataset.triedRemote='1'; this.src='https://raw.githubusercontent.com/imgmongelli/airlines-logos-dataset/master/images/JBU.png'; } else { this.style.display='none'; this.nextElementSibling.style.display='flex'; }"
+      />
+      <div class="airline-fallback-badge">B6</div>
+    </div>
+    <div class="airline-text">Jet Blue B62427</div>
+  
+        </div>
+        <div class="cell-place">Ft. Lauderdale</div>
+        <div class="cell-counter cell-center">2</div>
+        <div class="cell-gate cell-center">—</div>
+        <div class="cell-time cell-center">4:47 PM</div>
+        <div class="cell-status ">—</div>
+      </div>
+      <div class="flight-row" data-index="22">
+        <div class="cell-airline">
+          
+    <div class="airline-logo-box">
+      <img
+        class="airline-logo-img"
+        src="assets/logos/WJA.png"
+        alt=""
+        onerror="if(this.dataset.triedRemote !== '1' && 'https://raw.githubusercontent.com/imgmongelli/airlines-logos-dataset/master/images/WJA.png'){ this.dataset.triedRemote='1'; this.src='https://raw.githubusercontent.com/imgmongelli/airlines-logos-dataset/master/images/WJA.png'; } else { this.style.display='none'; this.nextElementSibling.style.display='flex'; }"
+      />
+      <div class="airline-fallback-badge">WS</div>
+    </div>
+    <div class="airline-text">West Jet WS2814</div>
+  
+        </div>
+        <div class="cell-place">Toronto</div>
+        <div class="cell-counter cell-center">3</div>
+        <div class="cell-gate cell-center">—</div>
+        <div class="cell-time cell-center">6:30 PM</div>
+        <div class="cell-status ">—</div>
+      </div>
+      <div class="flight-row" data-index="23">
+        <div class="cell-airline">
+          
+    <div class="airline-logo-box">
+      <img
+        class="airline-logo-img"
+        src="assets/logos/VIR.png"
+        alt=""
+        onerror="if(this.dataset.triedRemote !== '1' && 'https://raw.githubusercontent.com/imgmongelli/airlines-logos-dataset/master/images/VIR.png'){ this.dataset.triedRemote='1'; this.src='https://raw.githubusercontent.com/imgmongelli/airlines-logos-dataset/master/images/VIR.png'; } else { this.style.display='none'; this.nextElementSibling.style.display='flex'; }"
+      />
+      <div class="airline-fallback-badge">VS</div>
+    </div>
+    <div class="airline-text">Virgin Atlantic VS165</div>
+  
+        </div>
+        <div class="cell-place">Heathrow</div>
+        <div class="cell-counter cell-center">6</div>
+        <div class="cell-gate cell-center">—</div>
+        <div class="cell-time cell-center">9:05 PM</div>
+        <div class="cell-status ">—</div>
+      </div>
+    </div>
+
+    <!-- Board Footer -->
+    <footer class="board-footer">
+      <div class="footer-left" id="boardFooterAirport">
+        Sangster International Airport
+      </div>
+      <div class="footer-center">
+        HALIFAX VIRTUAL MEDIA MASTERS &amp; EVENTS LTD.
+      </div>
+      <div class="footer-right" id="boardLastUpdated">
+        UPDATED 4:26 PM
+      </div>
+    </footer>
+
+  </section>
+
+</div>
+
+<script>
+  const AIRPORT_CODE = "MBJ";
+  const FLIGHT_TYPE = "arrivals";
+  const LIVE_URL = "https://mainline123.github.io/MBJ-Arrivals-/flights.json";
+  const LOCAL_URL = "data/mbj-arrivals.json";
+  const INACTIVITY_TIMEOUT_MS = 90000;
+  const REFRESH_INTERVAL_MS = 60000;
+
+  function updateJamaicaClock() {
+    try {
+      const now = new Date();
+      const timeString = new Intl.DateTimeFormat("en-US", {
+        timeZone: "America/Jamaica",
+        hour: "numeric",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: true
+      }).format(now);
+
+      const dateString = new Intl.DateTimeFormat("en-US", {
+        timeZone: "America/Jamaica",
+        weekday: "short",
+        month: "short",
+        day: "numeric",
+        year: "numeric"
+      }).format(now);
+
+      const clockEl = document.getElementById("boardLiveClock");
+      const dateEl = document.getElementById("boardLiveDate");
+      if (clockEl) clockEl.textContent = timeString;
+      if (dateEl) dateEl.textContent = dateString;
+    } catch(e) {
+      const now = new Date();
+      const clockEl = document.getElementById("boardLiveClock");
+      if (clockEl) clockEl.textContent = now.toLocaleTimeString();
+    }
+  }
+
+  let inactivityTimer = null;
+  function resetInactivityTimer() {
+    if (inactivityTimer) clearTimeout(inactivityTimer);
+    inactivityTimer = setTimeout(() => {
+      window.location.href = "index.html";
+    }, INACTIVITY_TIMEOUT_MS);
+  }
+
+  ["touchstart", "click", "mousemove", "keydown"].forEach(evt => {
+    document.addEventListener(evt, resetInactivityTimer, { passive: true });
+  });
+
+  document.addEventListener("DOMContentLoaded", () => {
+    updateJamaicaClock();
+    setInterval(updateJamaicaClock, 1000);
+    resetInactivityTimer();
+
+    // Auto-scroll to upcoming flight
+    const bodyEl = document.getElementById("boardFlightList");
+    if (bodyEl) {
+      setTimeout(() => {
+        const rows = bodyEl.querySelectorAll(".flight-row");
+        if (rows.length > 3) {
+          // Keep smooth scroll on viewport without jank
+          bodyEl.scrollTop = 0;
+        }
+      }, 200);
+    }
+  });
+
+  // Background polling for live updates
+  setInterval(async () => {
+    try {
+      const res = await fetch(LIVE_URL + '?t=' + Date.now(), { cache: "no-store" });
+      if (!res.ok) return;
+      const data = await res.json();
+      if (!data || !Array.isArray(data.flights)) return;
+      
+      const updatedEl = document.getElementById("boardLastUpdated");
+      if (updatedEl && data.updated) {
+        const d = new Date(data.updated);
+        updatedEl.textContent = "UPDATED " + d.toLocaleTimeString("en-US", { timeZone: "America/Jamaica", hour: "numeric", minute: "2-digit", hour12: true });
+      }
+    } catch(err) {}
+  }, REFRESH_INTERVAL_MS);
+</script>
+</body>
+</html>

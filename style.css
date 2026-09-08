@@ -701,6 +701,7 @@ body {
 
 /* FLIGHTS TABLE BODY (Scrollable: 100vh - header height - footer height) */
 .board-table-body {
+  width: 100%;
   flex: 1 1 auto;
   min-height: 0;
   display: flex;
@@ -708,28 +709,84 @@ body {
   overflow-y: auto;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
+  scroll-behavior: auto;
+  touch-action: pan-y;
   background: #00171e;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  pointer-events: auto;
+}
+
+/* Reference compatibility rule for list of companies on webView */
+#list_of_companies {
+  width: 100%;
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: auto;
+  touch-action: pan-y;
+  background: #00171e;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: block;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  pointer-events: auto;
+}
+
+#list_of_companies li {
+  min-height: 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+  border-bottom: 0.5px solid rgba(255, 255, 255, 0.09);
+  cursor: pointer;
+  content-visibility: auto;
+  contain-intrinsic-size: 0 48px;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+#list_of_companies li:last-child {
+  border-bottom: none;
+}
+
+#list_of_companies li:active {
+  background-color: rgba(212, 175, 55, 0.25);
 }
 
 /* Custom Scrollbar */
-.board-table-body::-webkit-scrollbar {
+.board-table-body::-webkit-scrollbar,
+#list_of_companies::-webkit-scrollbar {
   width: 8px;
 }
 
-.board-table-body::-webkit-scrollbar-track {
+.board-table-body::-webkit-scrollbar-track,
+#list_of_companies::-webkit-scrollbar-track {
   background: rgba(0, 20, 26, 0.85);
 }
 
-.board-table-body::-webkit-scrollbar-thumb {
+.board-table-body::-webkit-scrollbar-thumb,
+#list_of_companies::-webkit-scrollbar-thumb {
   background: rgba(212, 175, 55, 0.4);
   border-radius: 4px;
 }
 
-.board-table-body::-webkit-scrollbar-thumb:hover {
+.board-table-body::-webkit-scrollbar-thumb:hover,
+#list_of_companies::-webkit-scrollbar-thumb:hover {
   background: rgba(212, 175, 55, 0.75);
 }
 
-.board-table-body {
+.board-table-body,
+#list_of_companies {
   scrollbar-width: thin;
   scrollbar-color: rgba(212, 175, 55, 0.4) rgba(0, 20, 26, 0.85);
 }
@@ -745,6 +802,13 @@ body {
   border-bottom: 1px solid rgba(255, 255, 255, 0.09);
   font-size: clamp(12px, 1.35vh, 16px);
   font-weight: 700;
+  cursor: pointer;
+  content-visibility: auto;
+  contain-intrinsic-size: 0 54px;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
   transition: background-color 0.15s ease;
 }
 
