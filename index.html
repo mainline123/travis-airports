@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Moon Palace Jamaica — Airport Information &amp; Live Flight Board</title>
+  <!-- Google Fonts: Montserrat, Outfit, Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="kiosk-wrapper">
+
+  <!-- =======================================================
+       VIEW 1: AIRPORT INFORMATION MENU (Matching Reference Image)
+       ======================================================= -->
+  <main id="menuView" class="kiosk-canvas view-active">
+    
+    <!-- Hero / Resort Pool Background Header with Embedded Artwork -->
+    <header class="hero-section">
+      <div class="hero-image-wrap">
+        <img src="assets/moon-palace-bg.jpg" alt="Moon Palace Jamaica Ocho Rios — Airport Information" class="hero-img">
+        <div class="hero-bottom-fade"></div>
+      </div>
+      <h1 class="sr-only">Moon Palace Jamaica — Airport Information</h1>
+    </header>
+
+    <!-- 3 Airport Cards (MBJ, KIN, POT) -->
+    <section class="cards-section" aria-label="Jamaica Airports">
+
+      <!-- CARD 1: MBJ -->
+      <article class="airport-card" id="card-mbj">
+        <div class="card-icon-wrap" aria-hidden="true">
+          <div class="airport-circle-icon">
+            <svg viewBox="0 0 100 100" fill="currentColor" class="plane-icon" aria-hidden="true">
+              <path d="M 61.1 75.6 L 58.5 75.6 L 53.4 56.0 L 41.5 64.5 L 40.6 73.9 L 38.0 76.1 L 35.5 70.1 L 31.6 65.4 L 28.2 63.2 L 24.4 60.3 L 26.9 57.3 L 35.5 59.0 L 41.9 52.6 L 44.4 46.6 L 35.9 43.6 L 31.6 42.3 L 25.2 39.7 L 28.2 36.8 L 53.8 36.8 L 59.0 32.9 C 62.4 29.1, 66.7 24.4, 70.9 23.5 C 75.2 22.6, 77.4 25.2, 76.5 28.6 C 75.6 31.6, 71.8 35.5, 68.4 38.9 L 63.7 44.0 L 63.7 70.5 L 64.5 72.2 Z"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="card-details">
+          <h2 class="airport-iata">MBJ</h2>
+          <h3 class="airport-name">SANGSTER<br>INTERNATIONAL AIRPORT</h3>
+          <p class="airport-city">MONTEGO BAY, JAMAICA</p>
+        </div>
+
+        <div class="card-buttons">
+          <button type="button" class="btn-action" data-airport="MBJ" data-type="arrivals" id="btn-mbj-arrivals">
+            <span class="btn-icon" aria-hidden="true">
+              <!-- Arrivals / Landing Icon -->
+              <svg viewBox="0 0 52 42" fill="currentColor">
+                <path d="M 48.5 30.5 C 49 28.5 48 26.5 45.5 25.5 L 35 21.5 L 24 13 L 17 2.5 C 16 2.2 15 2.8 15 4 L 18 16 L 10 16.5 L 6.5 12 C 5.5 11 4.5 11.5 4.5 12.5 L 4.5 18 C 4.5 19 5.5 20 7 21 L 11 22.5 L 18 24 L 24 26.5 L 31 28 L 40 31 L 46 31.5 C 47.5 31.5 48.2 31.2 48.5 30.5 Z"/>
+                <rect x="25.5" y="32" width="3" height="4" rx="0.5"/>
+                <rect x="4" y="37" width="44" height="2.8" rx="1.4"/>
+              </svg>
+            </span>
+            <span class="btn-label">ARRIVALS</span>
+            <span class="btn-chevron" aria-hidden="true">
+              <svg viewBox="0 0 12 20" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="2,2 10,10 2,18" />
+              </svg>
+            </span>
+          </button>
+
+          <button type="button" class="btn-action" data-airport="MBJ" data-type="departures" id="btn-mbj-departures">
+            <span class="btn-icon" aria-hidden="true">
+              <!-- Departures / Takeoff Icon -->
+              <svg viewBox="0 0 52 42" fill="currentColor">
+                <path d="M 50 7.5 C 50.5 9 49.5 11 47 12.5 L 39 16.5 L 33 21 L 22 27 L 13 32 C 11.5 32.8 9.5 32 8.5 30.5 L 3.5 23.5 C 3 22.5 3.5 21.5 4.5 21.5 L 10 23 L 17 21 L 13 11 C 12.5 9.5 13.5 8.5 15 8.5 L 20.5 11.5 L 28 12.5 L 36 12 L 44 8 C 47 6.5 49.2 6.5 50 7.5 Z"/>
+                <rect x="4" y="37" width="44" height="2.8" rx="1.4"/>
+              </svg>
+            </span>
+            <span class="btn-label">DEPARTURES</span>
+            <span class="btn-chevron" aria-hidden="true">
+              <svg viewBox="0 0 12 20" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="2,2 10,10 2,18" />
+              </svg>
+            </span>
+          </button>
+        </div>
+      </article>
+
+      <!-- CARD 2: KIN -->
+      <article class="airport-card" id="card-kin">
+        <div class="card-icon-wrap" aria-hidden="true">
+          <div class="airport-circle-icon">
+            <svg viewBox="0 0 100 100" fill="currentColor" class="plane-icon" aria-hidden="true">
+              <path d="M 61.1 75.6 L 58.5 75.6 L 53.4 56.0 L 41.5 64.5 L 40.6 73.9 L 38.0 76.1 L 35.5 70.1 L 31.6 65.4 L 28.2 63.2 L 24.4 60.3 L 26.9 57.3 L 35.5 59.0 L 41.9 52.6 L 44.4 46.6 L 35.9 43.6 L 31.6 42.3 L 25.2 39.7 L 28.2 36.8 L 53.8 36.8 L 59.0 32.9 C 62.4 29.1, 66.7 24.4, 70.9 23.5 C 75.2 22.6, 77.4 25.2, 76.5 28.6 C 75.6 31.6, 71.8 35.5, 68.4 38.9 L 63.7 44.0 L 63.7 70.5 L 64.5 72.2 Z"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="card-details">
+          <h2 class="airport-iata">KIN</h2>
+          <h3 class="airport-name">NORMAN MANLEY<br>INTERNATIONAL AIRPORT</h3>
+          <p class="airport-city">KINGSTON, JAMAICA</p>
+        </div>
+
+        <div class="card-buttons">
+          <button type="button" class="btn-action" data-airport="KIN" data-type="arrivals" id="btn-kin-arrivals">
+            <span class="btn-icon" aria-hidden="true">
+              <!-- Arrivals / Landing Icon -->
+              <svg viewBox="0 0 52 42" fill="currentColor">
+                <path d="M 48.5 30.5 C 49 28.5 48 26.5 45.5 25.5 L 35 21.5 L 24 13 L 17 2.5 C 16 2.2 15 2.8 15 4 L 18 16 L 10 16.5 L 6.5 12 C 5.5 11 4.5 11.5 4.5 12.5 L 4.5 18 C 4.5 19 5.5 20 7 21 L 11 22.5 L 18 24 L 24 26.5 L 31 28 L 40 31 L 46 31.5 C 47.5 31.5 48.2 31.2 48.5 30.5 Z"/>
+                <rect x="25.5" y="32" width="3" height="4" rx="0.5"/>
+                <rect x="4" y="37" width="44" height="2.8" rx="1.4"/>
+              </svg>
+            </span>
+            <span class="btn-label">ARRIVALS</span>
+            <span class="btn-chevron" aria-hidden="true">
+              <svg viewBox="0 0 12 20" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="2,2 10,10 2,18" />
+              </svg>
+            </span>
+          </button>
+
+          <button type="button" class="btn-action" data-airport="KIN" data-type="departures" id="btn-kin-departures">
+            <span class="btn-icon" aria-hidden="true">
+              <!-- Departures / Takeoff Icon -->
+              <svg viewBox="0 0 52 42" fill="currentColor">
+                <path d="M 50 7.5 C 50.5 9 49.5 11 47 12.5 L 39 16.5 L 33 21 L 22 27 L 13 32 C 11.5 32.8 9.5 32 8.5 30.5 L 3.5 23.5 C 3 22.5 3.5 21.5 4.5 21.5 L 10 23 L 17 21 L 13 11 C 12.5 9.5 13.5 8.5 15 8.5 L 20.5 11.5 L 28 12.5 L 36 12 L 44 8 C 47 6.5 49.2 6.5 50 7.5 Z"/>
+                <rect x="4" y="37" width="44" height="2.8" rx="1.4"/>
+              </svg>
+            </span>
+            <span class="btn-label">DEPARTURES</span>
+            <span class="btn-chevron" aria-hidden="true">
+              <svg viewBox="0 0 12 20" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="2,2 10,10 2,18" />
+              </svg>
+            </span>
+          </button>
+        </div>
+      </article>
+
+      <!-- CARD 3: POT -->
+      <article class="airport-card" id="card-pot">
+        <div class="card-icon-wrap" aria-hidden="true">
+          <div class="airport-circle-icon">
+            <svg viewBox="0 0 100 100" fill="currentColor" class="plane-icon" aria-hidden="true">
+              <path d="M 61.1 75.6 L 58.5 75.6 L 53.4 56.0 L 41.5 64.5 L 40.6 73.9 L 38.0 76.1 L 35.5 70.1 L 31.6 65.4 L 28.2 63.2 L 24.4 60.3 L 26.9 57.3 L 35.5 59.0 L 41.9 52.6 L 44.4 46.6 L 35.9 43.6 L 31.6 42.3 L 25.2 39.7 L 28.2 36.8 L 53.8 36.8 L 59.0 32.9 C 62.4 29.1, 66.7 24.4, 70.9 23.5 C 75.2 22.6, 77.4 25.2, 76.5 28.6 C 75.6 31.6, 71.8 35.5, 68.4 38.9 L 63.7 44.0 L 63.7 70.5 L 64.5 72.2 Z"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="card-details">
+          <h2 class="airport-iata">POT</h2>
+          <h3 class="airport-name">IAN FLEMING<br>INTERNATIONAL AIRPORT</h3>
+          <p class="airport-city">OCHO RIOS, JAMAICA</p>
+        </div>
+
+        <div class="card-buttons">
+          <button type="button" class="btn-action" data-airport="POT" data-type="arrivals" id="btn-pot-arrivals">
+            <span class="btn-icon" aria-hidden="true">
+              <!-- Arrivals / Landing Icon -->
+              <svg viewBox="0 0 52 42" fill="currentColor">
+                <path d="M 48.5 30.5 C 49 28.5 48 26.5 45.5 25.5 L 35 21.5 L 24 13 L 17 2.5 C 16 2.2 15 2.8 15 4 L 18 16 L 10 16.5 L 6.5 12 C 5.5 11 4.5 11.5 4.5 12.5 L 4.5 18 C 4.5 19 5.5 20 7 21 L 11 22.5 L 18 24 L 24 26.5 L 31 28 L 40 31 L 46 31.5 C 47.5 31.5 48.2 31.2 48.5 30.5 Z"/>
+                <rect x="25.5" y="32" width="3" height="4" rx="0.5"/>
+                <rect x="4" y="37" width="44" height="2.8" rx="1.4"/>
+              </svg>
+            </span>
+            <span class="btn-label">ARRIVALS</span>
+            <span class="btn-chevron" aria-hidden="true">
+              <svg viewBox="0 0 12 20" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="2,2 10,10 2,18" />
+              </svg>
+            </span>
+          </button>
+
+          <button type="button" class="btn-action" data-airport="POT" data-type="departures" id="btn-pot-departures">
+            <span class="btn-icon" aria-hidden="true">
+              <!-- Departures / Takeoff Icon -->
+              <svg viewBox="0 0 52 42" fill="currentColor">
+                <path d="M 50 7.5 C 50.5 9 49.5 11 47 12.5 L 39 16.5 L 33 21 L 22 27 L 13 32 C 11.5 32.8 9.5 32 8.5 30.5 L 3.5 23.5 C 3 22.5 3.5 21.5 4.5 21.5 L 10 23 L 17 21 L 13 11 C 12.5 9.5 13.5 8.5 15 8.5 L 20.5 11.5 L 28 12.5 L 36 12 L 44 8 C 47 6.5 49.2 6.5 50 7.5 Z"/>
+                <rect x="4" y="37" width="44" height="2.8" rx="1.4"/>
+              </svg>
+            </span>
+            <span class="btn-label">DEPARTURES</span>
+            <span class="btn-chevron" aria-hidden="true">
+              <svg viewBox="0 0 12 20" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="2,2 10,10 2,18" />
+              </svg>
+            </span>
+          </button>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- Back to Main Menu Button -->
+    <div class="back-wrap">
+      <a href="../cruise/index.html" class="btn-back-menu" id="btnBackToMain">
+        <span class="back-chevron">&lsaquo;</span>
+        <span class="back-text">BACK TO MAIN MENU</span>
+      </a>
+    </div>
+
+    <!-- Footer: Golden Pineapple & Jamaican Flag -->
+    <footer class="menu-footer">
+      <div class="pineapple-badge" aria-label="Hospitality Pineapple">
+        <!-- Luxury Golden Pineapple SVG -->
+        <svg viewBox="0 0 60 90" fill="none" xmlns="http://www.w3.org/2000/svg" class="pineapple-svg">
+          <!-- Crown leaves -->
+          <path d="M30 4 C28 14, 20 22, 10 26 C20 25, 26 22, 28 14 Z" fill="#d4af37"/>
+          <path d="M30 2 C32 15, 40 22, 50 26 C40 25, 34 22, 32 14 Z" fill="#b99326"/>
+          <path d="M30 0 C30 12, 26 24, 22 28 C26 25, 30 20, 30 10 Z" fill="#e8c75d"/>
+          <path d="M30 0 C30 12, 34 24, 38 28 C34 25, 30 20, 30 10 Z" fill="#aa820a"/>
+          <path d="M30 6 C25 18, 14 26, 6 28 C15 28, 24 24, 28 16 Z" fill="#f3cf7a"/>
+          <path d="M30 6 C35 18, 46 26, 54 28 C45 28, 36 24, 32 16 Z" fill="#c59b27"/>
+          <!-- Pineapple body with textured diamond facets -->
+          <ellipse cx="30" cy="56" rx="19" ry="26" fill="url(#pineappleGrad)"/>
+          <!-- Facet lines -->
+          <path d="M18 36 L42 76 M13 46 L37 80 M27 33 L48 68 M42 36 L18 76 M47 46 L23 80 M33 33 L12 68" stroke="#aa820a" stroke-width="1.3" opacity="0.6"/>
+          <defs>
+            <linearGradient id="pineappleGrad" x1="12" y1="30" x2="48" y2="82" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#fce79f"/>
+              <stop offset="45%" stop-color="#d4af37"/>
+              <stop offset="100%" stop-color="#8a6305"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+
+      <!-- Jamaican National Flag -->
+      <div class="jamaica-flag" aria-label="Flag of Jamaica">
+        <svg viewBox="0 0 120 70" preserveAspectRatio="none" class="flag-svg">
+          <polygon points="0,0 48,35 0,70" fill="#111111"/>
+          <polygon points="120,0 72,35 120,70" fill="#111111"/>
+          <polygon points="0,0 60,27 120,0" fill="#007749"/>
+          <polygon points="0,70 60,43 120,70" fill="#007749"/>
+          <polygon points="0,0 12,0 120,63 120,70 108,70 0,7" fill="#FFB81C"/>
+          <polygon points="120,0 108,0 0,63 0,70 12,70 120,7" fill="#FFB81C"/>
+        </svg>
+      </div>
+    </footer>
+
+  </main>
+
+
+  <!-- =======================================================
+       VIEW 2: LIVE FLIGHT BOARD VIEW (Arrivals / Departures)
+       ======================================================= -->
+  <section id="boardView" class="kiosk-canvas view-hidden" aria-live="polite">
+
+    <!-- Board Header -->
+    <header class="board-header">
+      <div class="board-brand-col">
+        <div class="board-iata" id="boardAirportCode">MBJ</div>
+        <div class="board-country">JAMAICA</div>
+      </div>
+
+      <div class="board-airport-meta">
+        <button type="button" class="btn-return-menu" id="btnReturnToMenu" aria-label="Return to Airport Selection Menu">
+          &larr; RETURN TO MENU
+        </button>
+        <div class="board-fullname" id="boardAirportName">SANGSTER INTERNATIONAL AIRPORT</div>
+        <div class="board-location" id="boardAirportLocation">MONTEGO BAY &bull; JAMAICA</div>
+        <div class="board-live-pill">
+          <span class="live-dot"></span> LIVE DATA
+        </div>
+      </div>
+    </header>
+
+    <!-- Clock & Date Bar (Jamaica Time) -->
+    <div class="board-clock-bar">
+      <div class="clock-display">
+        <span class="clock-time" id="boardLiveClock">--:--:--</span>
+        <span class="clock-tz">EST (LOCAL)</span>
+      </div>
+      <div class="date-display" id="boardLiveDate">Loading Date...</div>
+    </div>
+
+    <!-- Category Banner (Departures ✈ / Arrivals 🛬) -->
+    <div class="board-hero-banner" id="boardHeroBanner">
+      <div class="hero-category-title" id="boardCategoryTitle">
+        DEPARTURES <span class="hero-cat-icon">&#9992;</span>
+      </div>
+      <div class="hero-source-badge" id="boardSourceBadge">
+        OFFICIAL MBJ DATA
+      </div>
+    </div>
+
+    <!-- Column Headers -->
+    <div class="board-columns-header" id="boardTableColumns">
+      <div class="col-airline">AIRLINE / FLIGHT</div>
+      <div class="col-place" id="colHeaderPlace">TO</div>
+      <div class="col-counter" id="colHeaderDesk">CHECK-IN</div>
+      <div class="col-gate" id="colHeaderGate">GATE</div>
+      <div class="col-time">TIME</div>
+      <div class="col-status">STATUS</div>
+    </div>
+
+    <!-- Flights Scroll/List Container -->
+    <div class="board-table-body" id="boardFlightList">
+      <div class="loading-state">
+        <div class="spinner"></div>
+        <p>Loading live flight data...</p>
+      </div>
+    </div>
+
+    <!-- Board Footer -->
+    <footer class="board-footer">
+      <div class="footer-left" id="boardFooterAirport">
+        Sangster International Airport
+      </div>
+      <div class="footer-center">
+        HALIFAX VIRTUAL MEDIA MASTERS &amp; EVENTS LTD.
+      </div>
+      <div class="footer-right" id="boardLastUpdated">
+        UPDATED --:--
+      </div>
+    </footer>
+
+  </section>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

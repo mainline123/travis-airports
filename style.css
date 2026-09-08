@@ -1,0 +1,981 @@
+/* ==========================================================================
+   MOON PALACE JAMAICA — AIRPORT INFORMATION & LIVE FLIGHT KIOSK
+   Optimized for 9:16 Portrait Displays (1080 x 1920)
+   ========================================================================== */
+
+:root {
+  --navy-base: #001f28;
+  --navy-deep: #002632;
+  --navy-mid: #003644;
+  --navy-light: #004557;
+
+  --gold-glow: rgba(212, 175, 55, 0.35);
+  --gold-border: #d4af37;
+  --gold-border-bright: #f0cb64;
+  --gold-primary: #dfb743;
+  --gold-light: #fbecc2;
+  --gold-dark: #a27c15;
+
+  --gold-grad: linear-gradient(135deg, #fdf1cb 0%, #dfb743 45%, #aa820a 100%);
+  --gold-text-grad: linear-gradient(180deg, #fff5d8 0%, #e8be4f 48%, #af871b 100%);
+  --card-bg: rgba(0, 44, 56, 0.82);
+  --btn-bg: rgba(0, 31, 40, 0.80);
+  --btn-hover-bg: rgba(212, 175, 55, 0.20);
+
+  --text-white: #ffffff;
+  --text-muted: #c2d6dc;
+
+  --color-green: #3cd070;
+  --color-amber: #ffaa2b;
+  --color-red: #ff5252;
+  --color-cyan: #30d8ff;
+  --color-blue: #2395ea;
+
+  --font-brand: 'Montserrat', sans-serif;
+  --font-ui: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* KIOSK RESET & ANTI-TAMPER */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-drag: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #001217;
+  font-family: var(--font-ui);
+  color: var(--text-white);
+  touch-action: manipulation;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* FLUID KIOSK & DISPLAY CONTAINER */
+.kiosk-wrapper {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  max-width: 100vw;
+  max-height: 100vh;
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 30%, #003644 0%, #002631 55%, #00161c 100%);
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.9);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Portrait Kiosk Optimization (1080x1920 base) */
+@media (max-aspect-ratio: 1/1) {
+  .kiosk-wrapper {
+    max-width: 1080px;
+    width: 100vw;
+    height: 100vh;
+  }
+}
+
+/* VIEW ENGINE */
+.kiosk-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.view-active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+  visibility: visible;
+}
+
+.view-hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.98);
+  visibility: hidden;
+}
+
+
+/* ==========================================================================
+   VIEW 1: AIRPORT INFORMATION MENU
+   ========================================================================== */
+
+#menuView {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background:
+    linear-gradient(180deg, rgba(0, 24, 32, 0.1) 0%, rgba(0, 31, 40, 0.95) 45%, var(--navy-base) 65%),
+    var(--navy-base);
+}
+
+/* HERO ARTWORK (Top 33% of 9:16 screen) */
+.hero-section {
+  position: relative;
+  flex: 0 0 auto;
+  width: 100%;
+  overflow: hidden;
+}
+
+.hero-image-wrap {
+  position: relative;
+  width: 100%;
+  line-height: 0;
+}
+
+.hero-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.hero-bottom-fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 18%;
+  background: linear-gradient(180deg, transparent 0%, var(--navy-base) 100%);
+}
+
+
+/* ==========================================================================
+   CARDS SECTION (The 3 Airport Cards)
+   ========================================================================== */
+
+.cards-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6vh;
+  padding: 0 4.5vw;
+  flex: 1 0 auto;
+  justify-content: center;
+  z-index: 3;
+}
+
+.airport-card {
+  display: grid;
+  grid-template-columns: clamp(50px, 6.8vh, 74px) 1fr clamp(165px, 25vw, 225px);
+  align-items: center;
+  gap: clamp(10px, 1.8vw, 18px);
+  padding: 1.4vh 2.5vw;
+  background: var(--card-bg);
+  border: 1.8px solid var(--gold-border);
+  border-radius: 18px;
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.5),
+    inset 0 0 15px rgba(212, 175, 55, 0.08);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.airport-card:hover,
+.airport-card:focus-within {
+  border-color: var(--gold-border-bright);
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.65),
+    0 0 15px var(--gold-glow),
+    inset 0 0 20px rgba(212, 175, 55, 0.15);
+  transform: translateY(-2px);
+}
+
+/* CIRCULAR AIRPORT ICON */
+.card-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.airport-circle-icon {
+  width: clamp(52px, 7.2vh, 76px);
+  height: clamp(52px, 7.2vh, 76px);
+  border: 2.2px solid var(--gold-border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-primary);
+  background: radial-gradient(circle at 45% 45%, #003644 0%, #00222a 75%);
+  box-shadow:
+    0 0 12px rgba(212, 175, 55, 0.28),
+    inset 0 0 8px rgba(0, 0, 0, 0.45);
+  position: relative;
+  overflow: hidden;
+}
+
+.airport-circle-icon::after {
+  content: '';
+  position: absolute;
+  inset: 1px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 235, 170, 0.22);
+  pointer-events: none;
+}
+
+.plane-icon {
+  width: 100%;
+  height: 100%;
+  display: block;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.45));
+}
+
+/* CARD DETAILS (CENTER COLUMN) */
+.card-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-left: 1.5px solid rgba(212, 175, 55, 0.5);
+  padding-left: 2.8vw;
+  min-width: 0;
+}
+
+.airport-iata {
+  font-family: var(--font-brand);
+  font-size: clamp(24px, 3.4vh, 38px);
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: var(--text-white);
+  line-height: 1;
+  margin-bottom: 0.5vh;
+}
+
+.airport-name {
+  font-family: var(--font-brand);
+  font-size: clamp(9px, 1.35vh, 15px);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: 0.03em;
+  color: var(--gold-light);
+  text-transform: uppercase;
+  word-break: break-word;
+}
+
+.airport-city {
+  font-size: clamp(8px, 1.15vh, 13px);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  margin-top: 0.5vh;
+  text-transform: uppercase;
+}
+
+/* DUAL ACTION BUTTONS */
+.card-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9vh;
+  justify-content: center;
+  border-left: 1.5px solid rgba(212, 175, 55, 0.5);
+  padding-left: clamp(8px, 1.4vw, 16px);
+}
+
+.btn-action {
+  display: grid;
+  grid-template-columns: clamp(20px, 2.6vw, 30px) 1fr clamp(8px, 1vw, 12px);
+  align-items: center;
+  gap: clamp(4px, 0.6vw, 8px);
+  width: 100%;
+  height: clamp(34px, 4.6vh, 52px);
+  padding: 0 clamp(8px, 1.1vw, 14px);
+  background: var(--btn-bg);
+  border: 1.5px solid var(--gold-border);
+  border-radius: 12px;
+  color: var(--text-white);
+  cursor: pointer;
+  text-decoration: none;
+  font-family: var(--font-ui);
+  font-size: clamp(10px, 1.35vh, 15px);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  transition: all 0.18s ease-in-out;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+  margin: 10px auto;
+}
+
+.btn-action .btn-icon {
+  width: 100%;
+  aspect-ratio: 52 / 42;
+  color: var(--gold-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-action .btn-icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.btn-action .btn-label {
+  text-align: center;
+  color: var(--text-white);
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.btn-action .btn-chevron {
+  color: var(--gold-primary);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  line-height: 1;
+}
+
+.btn-action .btn-chevron svg {
+  width: clamp(7px, 0.9vw, 10px);
+  height: clamp(11px, 1.5vh, 16px);
+  display: block;
+}
+
+.btn-action:hover,
+.btn-action:focus {
+  background: var(--btn-hover-bg);
+  border-color: var(--gold-border-bright);
+  box-shadow: 0 0 12px var(--gold-glow);
+  transform: translateX(2px);
+}
+
+.btn-action:active {
+  transform: scale(0.97);
+  background: rgba(212, 175, 55, 0.3);
+}
+
+
+/* ==========================================================================
+   BACK BUTTON & MENU FOOTER
+   ========================================================================== */
+
+.back-wrap {
+  display: flex;
+  justify-content: center;
+  padding: 1.2vh 4.5vw 0.5vh;
+  z-index: 3;
+  flex: 0 0 auto;
+}
+
+.btn-back-menu {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2vw;
+  width: 82%;
+  max-width: 440px;
+  height: clamp(38px, 5vh, 58px);
+  background: rgba(0, 26, 34, 0.88);
+  border: 1.8px solid var(--gold-border);
+  border-radius: 14px;
+  color: var(--text-white);
+  text-decoration: none;
+  font-family: var(--font-brand);
+  font-size: clamp(12px, 1.7vh, 19px);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  transition: all 0.18s ease;
+}
+
+.btn-back-menu .back-chevron {
+  color: var(--gold-primary);
+  font-size: 1.6em;
+  line-height: 1;
+  font-weight: 700;
+  display: inline-block;
+  transform: translateY(-1px);
+}
+
+.btn-back-menu:hover,
+.btn-back-menu:focus {
+  background: rgba(212, 175, 55, 0.18);
+  border-color: var(--gold-border-bright);
+  box-shadow: 0 0 14px var(--gold-glow);
+  transform: translateY(-2px);
+}
+
+.btn-back-menu:active {
+  transform: scale(0.97);
+}
+
+/* MENU FOOTER: Pineapple & Flag */
+.menu-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8vh 0 1.8vh;
+  gap: 0.7vh;
+  position: relative;
+  z-index: 2;
+  flex: 0 0 auto;
+}
+
+.pineapple-badge {
+  width: clamp(22px, 3.2vh, 36px);
+  height: auto;
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.7));
+}
+
+.pineapple-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.jamaica-flag {
+  width: clamp(40px, 5.2vh, 65px);
+  height: clamp(22px, 3vh, 38px);
+  border-radius: 3px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(255, 255, 255, 0.15);
+}
+
+.flag-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+
+/* ==========================================================================
+   VIEW 2: LIVE FLIGHT BOARD (Arrivals / Departures)
+   ========================================================================== */
+
+#boardView {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background: var(--navy-base);
+}
+
+/* BOARD HEADER (Always visible at top) */
+.board-header {
+  flex: 0 0 auto;
+  min-height: clamp(65px, 10.5vh, 95px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1vh 3.5vw;
+  background: linear-gradient(135deg, #001f28 0%, #003644 50%, #001f28 100%);
+  border-bottom: 3px solid var(--gold-primary);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  z-index: 10;
+}
+
+.board-brand-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.board-iata {
+  font-family: var(--font-brand);
+  color: var(--color-cyan);
+  font-size: clamp(26px, 4vh, 48px);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: 0.08em;
+}
+
+.board-country {
+  color: var(--gold-primary);
+  font-size: clamp(9px, 1.35vh, 15px);
+  font-weight: 900;
+  letter-spacing: 0.25em;
+  margin-top: 0.4vh;
+}
+
+.board-airport-meta {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.btn-return-menu {
+  background: rgba(212, 175, 55, 0.2);
+  border: 1.5px solid var(--gold-border);
+  color: var(--text-white);
+  padding: 0.4vh 2.5vw;
+  border-radius: 8px;
+  font-size: clamp(9px, 1.3vh, 14px);
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-bottom: 0.4vh;
+  transition: all 0.18s ease;
+}
+
+.btn-return-menu:hover,
+.btn-return-menu:active {
+  background: var(--gold-primary);
+  color: #00222a;
+}
+
+.board-fullname {
+  font-size: clamp(10px, 1.45vh, 17px);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: 0.02em;
+}
+
+.board-location {
+  color: var(--gold-light);
+  font-size: clamp(8px, 1.2vh, 13px);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin-top: 0.3vh;
+}
+
+.board-live-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-green);
+  font-size: clamp(8px, 1.15vh, 13px);
+  font-weight: 800;
+  margin-top: 0.2vh;
+}
+
+.live-dot {
+  width: 7px;
+  height: 7px;
+  background-color: var(--color-green);
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 8px var(--color-green);
+  animation: pulse-live 1.8s infinite;
+}
+
+@keyframes pulse-live {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.8;
+  }
+
+  50% {
+    transform: scale(1.3);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(0.9);
+    opacity: 0.8;
+  }
+}
+
+/* CLOCK BAR (Always visible) */
+.board-clock-bar {
+  flex: 0 0 auto;
+  height: clamp(36px, 4.8vh, 50px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 3.5vw;
+  background: #00222c;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  z-index: 10;
+}
+
+.clock-display {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.clock-time {
+  font-family: var(--font-brand);
+  color: var(--gold-primary);
+  font-size: clamp(15px, 2.2vh, 26px);
+  font-weight: 800;
+}
+
+.clock-tz {
+  font-size: clamp(9px, 1.15vh, 13px);
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.date-display {
+  font-size: clamp(10px, 1.4vh, 16px);
+  color: var(--text-white);
+  font-weight: 600;
+}
+
+/* CATEGORY HERO BANNER (Always visible) */
+.board-hero-banner {
+  flex: 0 0 auto;
+  height: clamp(38px, 5vh, 52px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 3.5vw;
+  background: linear-gradient(90deg, #003644 0%, #004b5e 100%);
+  border-bottom: 2px solid var(--color-cyan);
+  z-index: 10;
+}
+
+.hero-category-title {
+  font-family: var(--font-brand);
+  font-size: clamp(16px, 2.6vh, 32px);
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  color: var(--text-white);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hero-cat-icon {
+  color: var(--gold-primary);
+}
+
+.hero-source-badge {
+  color: var(--color-green);
+  font-size: clamp(9px, 1.3vh, 14px);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+/* TABLE COLUMNS HEADER (Always visible) */
+.board-columns-header {
+  flex: 0 0 auto;
+  height: clamp(32px, 3.8vh, 44px);
+  display: grid;
+  grid-template-columns: 2.15fr 1.35fr 0.8fr 0.55fr 0.95fr 0.95fr;
+  align-items: center;
+  background: #002d38;
+  color: var(--color-cyan);
+  font-size: clamp(8px, 1.15vh, 13px);
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  border-bottom: 1.5px solid rgba(255, 255, 255, 0.15);
+  padding: 0 1vw;
+  z-index: 10;
+}
+
+.board-columns-header>div {
+  padding: 0 0.5vw;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* FLIGHTS TABLE BODY (Scrollable: 100vh - header height - footer height) */
+.board-table-body {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  background: #00171e;
+}
+
+/* Custom Scrollbar */
+.board-table-body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.board-table-body::-webkit-scrollbar-track {
+  background: rgba(0, 20, 26, 0.85);
+}
+
+.board-table-body::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 55, 0.4);
+  border-radius: 4px;
+}
+
+.board-table-body::-webkit-scrollbar-thumb:hover {
+  background: rgba(212, 175, 55, 0.75);
+}
+
+.board-table-body {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(212, 175, 55, 0.4) rgba(0, 20, 26, 0.85);
+}
+
+.flight-row {
+  flex: 0 0 auto;
+  min-height: clamp(44px, 4.8vh, 62px);
+  height: clamp(44px, 4.8vh, 62px);
+  display: grid;
+  grid-template-columns: 2.15fr 1.35fr 0.8fr 0.55fr 0.95fr 0.95fr;
+  align-items: center;
+  padding: 0 1vw;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+  font-size: clamp(12px, 1.35vh, 16px);
+  font-weight: 700;
+  transition: background-color 0.15s ease;
+}
+
+.flight-row:nth-child(odd) {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.flight-row:nth-child(even) {
+  background: rgba(35, 149, 234, 0.10);
+}
+
+.flight-row:hover {
+  background: rgba(212, 175, 55, 0.12);
+}
+
+.flight-row>div {
+  padding: 0 0.5vw;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* AIRLINE CELL WITH LOGO */
+.cell-airline {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.8vw;
+  min-width: 0;
+}
+
+.airline-logo-box {
+  width: clamp(20px, 3vh, 34px);
+  height: clamp(20px, 3vh, 34px);
+  min-width: clamp(20px, 3vh, 34px);
+  background: #ffffff;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 2px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.airline-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.airline-fallback-badge {
+  display: none;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  background: #002c38;
+  color: #f0cb64;
+  font-size: clamp(8px, 1.1vh, 12px);
+  font-weight: 900;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: 4px;
+}
+
+.airline-text {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 800;
+  color: var(--text-white);
+}
+
+.cell-center {
+  text-align: center;
+  justify-content: center;
+}
+
+.cell-time {
+  color: var(--gold-primary);
+  font-weight: 800;
+}
+
+/* FLIGHT STATUS COLOURS */
+.cell-status {
+  font-weight: 800;
+}
+
+.status-ontime {
+  color: var(--color-green);
+}
+
+.status-delayed {
+  color: var(--color-amber);
+}
+
+.status-cancelled {
+  color: var(--color-red);
+}
+
+.status-landed,
+.status-departed {
+  color: var(--text-muted);
+}
+
+/* BOARD FOOTER (Always visible at bottom) */
+.board-footer {
+  flex: 0 0 auto;
+  height: clamp(28px, 3.4vh, 42px);
+  display: grid;
+  grid-template-columns: 1.2fr 1.6fr 1.2fr;
+  align-items: center;
+  padding: 0 3vw;
+  background: #001318;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--text-muted);
+  font-size: clamp(8px, 1.15vh, 12px);
+  font-weight: 600;
+  z-index: 10;
+}
+
+.footer-left {
+  text-align: left;
+}
+
+.footer-center {
+  text-align: center;
+  color: var(--color-cyan);
+  font-weight: 800;
+}
+
+.footer-right {
+  text-align: right;
+  color: var(--text-white);
+  font-weight: 700;
+}
+
+/* LOADING & EMPTY STATES */
+.loading-state,
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 15px;
+  color: var(--text-muted);
+  font-size: clamp(13px, 1.8vh, 20px);
+}
+
+.spinner {
+  width: 36px;
+  height: 36px;
+  border: 3.5px solid rgba(212, 175, 55, 0.2);
+  border-top-color: var(--gold-primary);
+  border-radius: 50%;
+  animation: spin 0.9s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ==========================================================================
+   WIDESCREEN & LANDSCAPE FLUID SCALING (Standard Monitors e.g. 1920x1080)
+   ========================================================================== */
+
+@media (orientation: landscape) and (min-width: 900px) {
+  .kiosk-wrapper {
+    max-width: 100vw;
+    width: 100vw;
+  }
+
+  #menuView {
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 2vh;
+  }
+
+  .hero-section {
+    max-width: 820px;
+    margin: 0 auto;
+  }
+
+  .cards-section {
+    max-width: 880px;
+    width: 100%;
+    margin: 1vh auto;
+    gap: 1.8vh;
+  }
+
+  .airport-card {
+    grid-template-columns: 85px 1fr 200px;
+    padding: 1.8vh 2.5vw;
+  }
+
+  .back-wrap {
+    max-width: 880px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .btn-back-menu {
+    max-width: 480px;
+  }
+
+  .menu-footer {
+    max-width: 880px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  #boardView {
+    max-width: 100vw;
+    width: 100vw;
+  }
+
+  .board-header,
+  .board-clock-bar,
+  .board-hero-banner,
+  .board-columns-header,
+  .board-table-body,
+  .board-footer {
+    max-width: 1600px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

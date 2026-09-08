@@ -1,0 +1,3 @@
+@echo off
+echo Launching Moon Palace Jamaica Airport Information Kiosk...
+start chrome "%CD%\index.html" --disable-web-security --user-data-dir="%TEMP%\chrome-airport-kiosk-profile" --start-maximized --kiosk
