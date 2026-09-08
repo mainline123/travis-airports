@@ -1,0 +1,146 @@
+{
+  "airport": "KIN",
+  "airportName": "Norman Manley International Airport",
+  "location": "Kingston, Jamaica",
+  "type": "departures",
+  "source": "Official NMIA Airport System",
+  "sourceUrl": "https://www.nmia.aero/",
+  "updated": "2026-09-08T11:30:00.000Z",
+  "flights": [
+    {
+      "airlineFlight": "Caribbean Airlines BW014",
+      "to": "Port of Spain",
+      "checkInCounters": "1 - 6",
+      "gate": "4",
+      "scheduledTime": "06:15 AM",
+      "actualTime": "06:12 AM",
+      "status": "Departed"
+    },
+    {
+      "airlineFlight": "American Airlines AA1548",
+      "to": "Miami",
+      "checkInCounters": "14 - 22",
+      "gate": "7",
+      "scheduledTime": "07:30 AM",
+      "actualTime": "07:28 AM",
+      "status": "Departed"
+    },
+    {
+      "airlineFlight": "Jet Blue B61760",
+      "to": "Fort Lauderdale",
+      "checkInCounters": "7 - 13",
+      "gate": "3",
+      "scheduledTime": "08:45 AM",
+      "actualTime": "08:45 AM",
+      "status": "Departed"
+    },
+    {
+      "airlineFlight": "Delta Airlines DL1894",
+      "to": "Atlanta",
+      "checkInCounters": "23 - 28",
+      "gate": "8",
+      "scheduledTime": "10:15 AM",
+      "actualTime": "10:20 AM",
+      "status": "Departed"
+    },
+    {
+      "airlineFlight": "interCaribbean Airways JY251",
+      "to": "Providenciales",
+      "checkInCounters": "29 - 32",
+      "gate": "2",
+      "scheduledTime": "11:20 AM",
+      "actualTime": "",
+      "status": "On-Time"
+    },
+    {
+      "airlineFlight": "Copa Airlines CM417",
+      "to": "Panama City",
+      "checkInCounters": "9 - 12",
+      "gate": "5",
+      "scheduledTime": "12:05 PM",
+      "actualTime": "",
+      "status": "On-Time"
+    },
+    {
+      "airlineFlight": "Caribbean Airlines BW078",
+      "to": "New York - JFK",
+      "checkInCounters": "1 - 6",
+      "gate": "6",
+      "scheduledTime": "12:50 PM",
+      "actualTime": "",
+      "status": "On-Time"
+    },
+    {
+      "airlineFlight": "American Airlines AA2370",
+      "to": "Miami",
+      "checkInCounters": "14 - 22",
+      "gate": "7",
+      "scheduledTime": "01:45 PM",
+      "actualTime": "",
+      "status": "On-Time"
+    },
+    {
+      "airlineFlight": "Jet Blue B61759",
+      "to": "New York - JFK",
+      "checkInCounters": "7 - 13",
+      "gate": "4",
+      "scheduledTime": "02:30 PM",
+      "actualTime": "",
+      "status": "On-Time"
+    },
+    {
+      "airlineFlight": "Arajet DM1121",
+      "to": "Santo Domingo",
+      "checkInCounters": "33 - 36",
+      "gate": "1",
+      "scheduledTime": "03:15 PM",
+      "actualTime": "",
+      "status": "On-Time"
+    },
+    {
+      "airlineFlight": "British Airways BA2262",
+      "to": "London - Gatwick",
+      "checkInCounters": "37 - 44",
+      "gate": "9",
+      "scheduledTime": "04:55 PM",
+      "actualTime": "",
+      "status": "On-Time"
+    },
+    {
+      "airlineFlight": "Cayman Airways KX600",
+      "to": "Grand Cayman",
+      "checkInCounters": "29 - 32",
+      "gate": "2",
+      "scheduledTime": "05:40 PM",
+      "actualTime": "",
+      "status": "On-Time"
+    },
+    {
+      "airlineFlight": "American Airlines AA1337",
+      "to": "Miami",
+      "checkInCounters": "14 - 22",
+      "gate": "8",
+      "scheduledTime": "06:30 PM",
+      "actualTime": "",
+      "status": "On-Time"
+    },
+    {
+      "airlineFlight": "Spirit Airlines NK284",
+      "to": "Fort Lauderdale",
+      "checkInCounters": "9 - 13",
+      "gate": "3",
+      "scheduledTime": "07:15 PM",
+      "actualTime": "",
+      "status": "On-Time"
+    },
+    {
+      "airlineFlight": "Caribbean Airlines BW015",
+      "to": "Antigua & Barbuda",
+      "checkInCounters": "1 - 6",
+      "gate": "5",
+      "scheduledTime": "08:20 PM",
+      "actualTime": "",
+      "status": "On-Time"
+    }
+  ]
+}

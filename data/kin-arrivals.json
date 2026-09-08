@@ -1,0 +1,123 @@
+{
+  "airport": "KIN",
+  "airportName": "Norman Manley International Airport",
+  "location": "Kingston, Jamaica",
+  "type": "arrivals",
+  "source": "Official NMIA Airport System",
+  "sourceUrl": "https://www.nmia.aero/",
+  "updated": "2026-09-08T11:30:00.000Z",
+  "flights": [
+    {
+      "airlineFlight": "Caribbean Airlines BW011",
+      "from": "Port of Spain",
+      "baggage": "1",
+      "scheduledTime": "07:10 AM",
+      "actualTime": "07:05 AM",
+      "status": "Landed"
+    },
+    {
+      "airlineFlight": "American Airlines AA1547",
+      "from": "Miami",
+      "baggage": "3",
+      "scheduledTime": "09:30 AM",
+      "actualTime": "09:28 AM",
+      "status": "Landed"
+    },
+    {
+      "airlineFlight": "Jet Blue B61758",
+      "from": "Fort Lauderdale",
+      "baggage": "2",
+      "scheduledTime": "10:15 AM",
+      "actualTime": "10:12 AM",
+      "status": "Landed"
+    },
+    {
+      "airlineFlight": "Delta Airlines DL1895",
+      "from": "Atlanta",
+      "baggage": "4",
+      "scheduledTime": "11:05 AM",
+      "actualTime": "",
+      "status": "On-Time"
+    },
+    {
+      "airlineFlight": "interCaribbean Airways JY250",
+      "from": "Providenciales",
+      "baggage": "1",
+      "scheduledTime": "11:55 AM",
+      "actualTime": "",
+      "status": "On-Time"
+    },
+    {
+      "airlineFlight": "Copa Airlines CM416",
+      "from": "Panama City",
+      "baggage": "2",
+      "scheduledTime": "12:40 PM",
+      "actualTime": "",
+      "status": "On-Time"
+    },
+    {
+      "airlineFlight": "American Airlines AA2369",
+      "from": "Miami",
+      "baggage": "3",
+      "scheduledTime": "01:10 PM",
+      "actualTime": "",
+      "status": "On-Time"
+    },
+    {
+      "airlineFlight": "Caribbean Airlines BW079",
+      "from": "New York - JFK",
+      "baggage": "4",
+      "scheduledTime": "02:15 PM",
+      "actualTime": "",
+      "status": "On-Time"
+    },
+    {
+      "airlineFlight": "Arajet DM1120",
+      "from": "Santo Domingo",
+      "baggage": "2",
+      "scheduledTime": "02:45 PM",
+      "actualTime": "",
+      "status": "On-Time"
+    },
+    {
+      "airlineFlight": "Jet Blue B61757",
+      "from": "New York - JFK",
+      "baggage": "3",
+      "scheduledTime": "03:50 PM",
+      "actualTime": "",
+      "status": "On-Time"
+    },
+    {
+      "airlineFlight": "British Airways BA2263",
+      "from": "London - Gatwick",
+      "baggage": "5",
+      "scheduledTime": "04:30 PM",
+      "actualTime": "",
+      "status": "On-Time"
+    },
+    {
+      "airlineFlight": "Cayman Airways KX601",
+      "from": "Grand Cayman",
+      "baggage": "1",
+      "scheduledTime": "05:15 PM",
+      "actualTime": "",
+      "status": "On-Time"
+    },
+    {
+      "airlineFlight": "Spirit Airlines NK283",
+      "from": "Fort Lauderdale",
+      "baggage": "2",
+      "scheduledTime": "06:30 PM",
+      "actualTime": "",
+      "status": "On-Time"
+    },
+    {
+      "airlineFlight": "American Airlines AA1336",
+      "from": "Miami",
+      "baggage": "3",
+      "scheduledTime": "07:45 PM",
+      "actualTime": "",
+      "status": "On-Time"
+    }
+  ]
+}

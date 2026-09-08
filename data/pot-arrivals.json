@@ -1,0 +1,67 @@
+{
+  "airport": "POT",
+  "airportName": "Ian Fleming International Airport",
+  "location": "Ocho Rios, Jamaica",
+  "type": "arrivals",
+  "source": "Ian Fleming International Airport Operations",
+  "sourceUrl": "https://iaflemingairport.com/",
+  "updated": "2026-09-08T11:30:00.000Z",
+  "flights": [
+    {
+      "airlineFlight": "TimAir Express TA101",
+      "from": "Montego Bay (MBJ)",
+      "baggage": "1",
+      "scheduledTime": "08:00 AM",
+      "actualTime": "07:58 AM",
+      "status": "Landed"
+    },
+    {
+      "airlineFlight": "Airlink Express AL203",
+      "from": "Kingston (KIN)",
+      "baggage": "1",
+      "scheduledTime": "09:45 AM",
+      "actualTime": "09:45 AM",
+      "status": "Landed"
+    },
+    {
+      "airlineFlight": "interCaribbean Airways JY301",
+      "from": "Providenciales",
+      "baggage": "1",
+      "scheduledTime": "12:00 PM",
+      "actualTime": "",
+      "status": "On-Time"
+    },
+    {
+      "airlineFlight": "American Airlines AA3994",
+      "from": "Miami",
+      "baggage": "1",
+      "scheduledTime": "01:30 PM",
+      "actualTime": "",
+      "status": "On-Time"
+    },
+    {
+      "airlineFlight": "TimAir Express TA105",
+      "from": "Montego Bay (MBJ)",
+      "baggage": "1",
+      "scheduledTime": "03:15 PM",
+      "actualTime": "",
+      "status": "On-Time"
+    },
+    {
+      "airlineFlight": "Airlink Express AL207",
+      "from": "Negril (NEG)",
+      "baggage": "1",
+      "scheduledTime": "04:30 PM",
+      "actualTime": "",
+      "status": "On-Time"
+    },
+    {
+      "airlineFlight": "VIP Executive Jet IF800",
+      "from": "Fort Lauderdale Exec",
+      "baggage": "VIP",
+      "scheduledTime": "05:45 PM",
+      "actualTime": "",
+      "status": "On-Time"
+    }
+  ]
+}

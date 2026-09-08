@@ -1,0 +1,203 @@
+﻿{
+  "airport": "MBJ",
+  "airportName": "Sangster International Airport",
+  "location": "Montego Bay, Jamaica",
+  "type": "arrivals",
+  "source": "Official MBJ Airport website",
+  "sourceUrl": "https://www.mbjairport.com/flights?type=arrivals",
+  "updated": "2026-09-08T11:26:31.052Z",
+  "flights": [
+    {
+      "airlineFlight": "Jet Blue B61127",
+      "from": "Ft. Lauderdale",
+      "baggage": "2",
+      "scheduledTime": "11:04 AM",
+      "actualTime": "",
+      "status": ""
+    },
+    {
+      "airlineFlight": "Jet Blue B6779",
+      "from": "New York - JFK",
+      "baggage": "2",
+      "scheduledTime": "11:15 AM",
+      "actualTime": "",
+      "status": ""
+    },
+    {
+      "airlineFlight": "Copa Airlines CM146",
+      "from": "Tocumen",
+      "baggage": "1",
+      "scheduledTime": "11:17 AM",
+      "actualTime": "",
+      "status": ""
+    },
+    {
+      "airlineFlight": "Air Canada AC1804",
+      "from": "Toronto",
+      "baggage": "6",
+      "scheduledTime": "11:30 AM",
+      "actualTime": "",
+      "status": ""
+    },
+    {
+      "airlineFlight": "Delta Airlines DL1955",
+      "from": "New York - JFK",
+      "baggage": "5",
+      "scheduledTime": "11:33 AM",
+      "actualTime": "",
+      "status": ""
+    },
+    {
+      "airlineFlight": "American Airlines AA855",
+      "from": "Charlotte",
+      "baggage": "3",
+      "scheduledTime": "11:37 AM",
+      "actualTime": "",
+      "status": ""
+    },
+    {
+      "airlineFlight": "United Airlines UA1462",
+      "from": "Newark",
+      "baggage": "4",
+      "scheduledTime": "11:43 AM",
+      "actualTime": "",
+      "status": ""
+    },
+    {
+      "airlineFlight": "Delta Airlines DL1997",
+      "from": "Atlanta",
+      "baggage": "5",
+      "scheduledTime": "11:48 AM",
+      "actualTime": "",
+      "status": ""
+    },
+    {
+      "airlineFlight": "Southwest Airlines WN272",
+      "from": "Orlando",
+      "baggage": "7",
+      "scheduledTime": "11:55 AM",
+      "actualTime": "",
+      "status": ""
+    },
+    {
+      "airlineFlight": "Jet Blue B6279",
+      "from": "New York - JFK",
+      "baggage": "2",
+      "scheduledTime": "12:39 PM",
+      "actualTime": "",
+      "status": ""
+    },
+    {
+      "airlineFlight": "West Jet WS2914",
+      "from": "Montreal",
+      "baggage": "1",
+      "scheduledTime": "12:50 PM",
+      "actualTime": "",
+      "status": ""
+    },
+    {
+      "airlineFlight": "Southwest Airlines WN906",
+      "from": "Baltimore",
+      "baggage": "4",
+      "scheduledTime": "12:55 PM",
+      "actualTime": "",
+      "status": ""
+    },
+    {
+      "airlineFlight": "Delta Airlines DL1801",
+      "from": "Atlanta",
+      "baggage": "5",
+      "scheduledTime": "1:01 PM",
+      "actualTime": "",
+      "status": ""
+    },
+    {
+      "airlineFlight": "American Airlines AA3228",
+      "from": "O'Hare International",
+      "baggage": "3",
+      "scheduledTime": "1:12 PM",
+      "actualTime": "",
+      "status": ""
+    },
+    {
+      "airlineFlight": "TUI Airways TOM636",
+      "from": "Birmingham",
+      "baggage": "6",
+      "scheduledTime": "1:15 PM",
+      "actualTime": "",
+      "status": ""
+    },
+    {
+      "airlineFlight": "American Airlines AA875",
+      "from": "Charlotte",
+      "baggage": "5",
+      "scheduledTime": "1:28 PM",
+      "actualTime": "",
+      "status": ""
+    },
+    {
+      "airlineFlight": "American Airlines AA2124",
+      "from": "Miami",
+      "baggage": "7",
+      "scheduledTime": "1:48 PM",
+      "actualTime": "",
+      "status": ""
+    },
+    {
+      "airlineFlight": "Jet Blue B6521",
+      "from": "Orlando",
+      "baggage": "2",
+      "scheduledTime": "2:21 PM",
+      "actualTime": "",
+      "status": ""
+    },
+    {
+      "airlineFlight": "American Airlines AA2039",
+      "from": "Philadelphia",
+      "baggage": "5",
+      "scheduledTime": "2:23 PM",
+      "actualTime": "",
+      "status": ""
+    },
+    {
+      "airlineFlight": "Wingo P57482",
+      "from": "Medellin",
+      "baggage": "1",
+      "scheduledTime": "3:29 PM",
+      "actualTime": "",
+      "status": ""
+    },
+    {
+      "airlineFlight": "TUI Fly - NL OR511",
+      "from": "Amsterdam",
+      "baggage": "6",
+      "scheduledTime": "3:35 PM",
+      "actualTime": "",
+      "status": ""
+    },
+    {
+      "airlineFlight": "Jet Blue B62427",
+      "from": "Ft. Lauderdale",
+      "baggage": "2",
+      "scheduledTime": "4:47 PM",
+      "actualTime": "",
+      "status": ""
+    },
+    {
+      "airlineFlight": "West Jet WS2814",
+      "from": "Toronto",
+      "baggage": "3",
+      "scheduledTime": "6:30 PM",
+      "actualTime": "",
+      "status": ""
+    },
+    {
+      "airlineFlight": "Virgin Atlantic VS165",
+      "from": "Heathrow",
+      "baggage": "6",
+      "scheduledTime": "9:05 PM",
+      "actualTime": "",
+      "status": ""
+    }
+  ]
+}
